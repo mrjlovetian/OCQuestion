@@ -27,3 +27,13 @@ NSString *phoneStr = [NSString stringWithFormat:@"%@", textFile.text];
 ```
 
 
+# 通过airdrop分享文件给ios设备
+首先需要知道Uniform Type Identifiers (UTIs)统一标示符（UTIs）  
+当你把图片分享之其他iOS设备，接收方会自动打开拍照类app并加载图片。如果你传递的是PDF文件，接收方设备可能会提示你选择一个app来打开文件，或者直接在iBooks中打开。iOS是如何知道哪个app适合什么样的数据类型呢？
+ 
+在系统中，苹果用UTIs来处理数据类型的标示。简单的说，一个uti是用来标示特定类型的数据或文件。例如，com.adobe.pdf标示一个pdf文件，而public.png代表一个PNG图片。在![ALT 这里](https://developer.apple.com/library/content/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html)可以查看已经在系统中注册了的完整的UTIs清单。（love cc cat）应用程序可以打开在iOS系统中已经注册了的UTI。因此无论文件是否被打开，iOS都会用特定的程序打开这个文件。
+ 
+系统允许多个程序注册相同的UTI。在这个教程中，iOS将通过app列表打开文件。比如，当你分享PDF文档时，你可以在接收端设备上看到如下屏幕：
+![ALT](/share.jpg)
+
+
