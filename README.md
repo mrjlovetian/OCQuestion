@@ -36,5 +36,7 @@ NSString *phoneStr = [NSString stringWithFormat:@"%@", textFile.text];
 系统允许多个程序注册相同的UTI。在这个教程中，iOS将通过app列表打开文件。比如，当你分享PDF文档时，你可以在接收端设备上看到如下屏幕：  
 
 ![ALT](/share.jpg)
-
+  
+  
+[参考资料](https://segmentfault.com/a/1190000004237771)
 
