@@ -40,3 +40,33 @@ NSString *phoneStr = [NSString stringWithFormat:@"%@", textFile.text];
   
 [参考资料](https://segmentfault.com/a/1190000004237771)
 
+
+## OC中的Block种类
+* NSGlobalBlock
+* NSMallocBlock
+* NSStackBlock
+
+```
+/// block内部引用外部变量，并且block被赋值，这属于NSMallocBlock
+    int a = 0;
+    void (^blocka)(void) = ^{
+        NSLog(@"-=-=-=-=%d", a);
+    };
+    blocka();
+    
+    /// 没有引用外部变量，但是有赋值=符号，这属于NSGlobalBlock
+    void (^blockb)(void) = ^{
+        
+    };
+    
+    /// 没有引用外部变量， 这属于NSGlobalBlock
+    NSLog(@"=-=-=-=-=-%@", ^(){
+        
+    });
+    
+    /// 引用外部变量， 这属于NSStackBlock
+    NSLog(@"=-=-=-=-=-%@", ^(){
+        NSLog(@"%d", a);
+    });
+```
+
